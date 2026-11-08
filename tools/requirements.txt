@@ -1,0 +1,7 @@
+# Author: Raghuram Kasturi Sami
+# Copyright (c) 2026 Raghuram Kasturi Sami
+
+pyserial>=3.5
+matplotlib>=3.7
+python-can>=4.3
+cantools>=39.0

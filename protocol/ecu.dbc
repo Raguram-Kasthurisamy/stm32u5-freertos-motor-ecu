@@ -1,0 +1,43 @@
+VERSION ""
+
+NS_ :
+
+BS_:
+
+BU_: ECU TOOL
+
+BO_ 256 ECU_Command: 8 TOOL
+ SG_ Mode : 0|8@1+ (1,0) [0|3] "" ECU
+ SG_ SpeedTarget : 8|16@1- (0.1,0) [-3276.8|3276.7] "rpm" ECU
+ SG_ DutyTarget : 24|16@1- (0.01,0) [-100|100] "%" ECU
+ SG_ AliveCounter : 40|8@1+ (1,0) [0|255] "" ECU
+ SG_ Crc : 56|8@1+ (1,0) [0|255] "" ECU
+
+BO_ 384 ECU_Status: 8 ECU
+ SG_ Mode : 0|4@1+ (1,0) [0|3] "" TOOL
+ SG_ Fault : 4|4@1+ (1,0) [0|5] "" TOOL
+ SG_ SpeedActual : 8|16@1- (0.1,0) [-3276.8|3276.7] "rpm" TOOL
+ SG_ SpeedSetpoint : 24|16@1- (0.1,0) [-3276.8|3276.7] "rpm" TOOL
+ SG_ Duty : 40|16@1- (0.01,0) [-100|100] "%" TOOL
+ SG_ Counter : 56|8@1+ (1,0) [0|255] "" TOOL
+
+BO_ 385 ECU_Measurements: 8 ECU
+ SG_ Current : 0|16@1+ (0.001,0) [0|65.535] "A" TOOL
+ SG_ SpeedTarget : 16|16@1- (0.1,0) [-3276.8|3276.7] "rpm" TOOL
+ SG_ EncoderCount : 32|32@1- (1,0) [-2147483648|2147483647] "counts" TOOL
+
+BO_ 1793 ECU_Heartbeat: 8 ECU
+ SG_ State : 0|8@1+ (1,0) [0|3] "" TOOL
+ SG_ ResetCause : 8|8@1+ (1,0) [0|7] "" TOOL
+ SG_ Uptime : 16|32@1+ (1,0) [0|4294967295] "s" TOOL
+
+CM_ "Author: Raghuram Kasturi Sami. CAN protocol of the smart-actuator ECU: classic CAN, 500 kbit/s, 11-bit identifiers, little-endian signals.";
+CM_ BO_ 256 "Command to the ECU. AliveCounter must change on every frame; the ECU stops the motor if valid commands stop for 250 ms.";
+CM_ SG_ 256 Crc "CRC-8 SAE J1850 over bytes 0 to 6.";
+CM_ BO_ 384 "Controller state, sent every 10 ms.";
+CM_ BO_ 385 "Electrical and encoder measurements, sent every 10 ms.";
+CM_ BO_ 1793 "Node heartbeat (0x700 + node id 1), sent every 100 ms.";
+VAL_ 256 Mode 0 "Stop" 1 "OpenLoop" 2 "Speed" 3 "ClearFault" ;
+VAL_ 384 Mode 0 "Disabled" 1 "OpenLoop" 2 "Speed" 3 "Fault" ;
+VAL_ 384 Fault 0 "None" 1 "Overcurrent" 2 "DriverFault" 3 "NoFeedback" 4 "EncoderReversed" 5 "TickLost" ;
+VAL_ 1793 State 0 "Disabled" 1 "OpenLoop" 2 "Speed" 3 "Fault" ;
