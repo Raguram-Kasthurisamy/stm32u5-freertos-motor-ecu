@@ -2,6 +2,7 @@
 
 #include "safety/crash_record.hpp"
 
+#include <algorithm>
 #include <cstring>
 
 namespace safety {
@@ -63,8 +64,10 @@ void set_text(CrashRecord& record, std::string_view value) {
 }
 
 std::string_view text(const CrashRecord& record) {
-  const std::size_t length = ::strnlen(record.text.data(), record.text.size());
-  return std::string_view(record.text.data(), length);
+  // std::find instead of strnlen: strnlen is POSIX, not standard C++, and newlib (the Arm
+  // toolchain's C library) does not declare it in strict -std=c++20 mode.
+  const auto end = std::find(record.text.begin(), record.text.end(), '\0');
+  return std::string_view(record.text.data(), static_cast<std::size_t>(end - record.text.begin()));
 }
 
 std::uint32_t compute_checksum(const CrashRecord& record) {
