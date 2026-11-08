@@ -1,5 +1,4 @@
-# Author: Raghuram Kasturi Sami
-# Copyright (c) 2026 Raghuram Kasturi Sami
+# Author: Raguram Kasthurisamy
 # Host-side unit tests for the hardware-independent code in lib/.
 #   cmake -S test -B build/test -G Ninja && cmake --build build/test && ctest --test-dir build/test
 cmake_minimum_required(VERSION 3.22)

@@ -1,5 +1,4 @@
-# Author: Raghuram Kasturi Sami
-# Copyright (c) 2026 Raghuram Kasturi Sami
+# Author: Raguram Kasthurisamy
 # Toolchain file: Arm GNU Toolchain (arm-none-eabi-*), bare metal.
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR arm)

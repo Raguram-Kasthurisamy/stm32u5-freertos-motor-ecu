@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-# Author: Raghuram Kasturi Sami
-# Copyright (c) 2026 Raghuram Kasturi Sami
+# Author: Raguram Kasthurisamy
 """Live plot of the ECU's control-loop telemetry.
 
 Opens the board's serial port, turns on the telemetry stream, and plots target/actual

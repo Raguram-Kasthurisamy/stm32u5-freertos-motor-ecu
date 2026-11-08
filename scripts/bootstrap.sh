@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# Author: Raghuram Kasturi Sami
-# Copyright (c) 2026 Raghuram Kasturi Sami
+# Author: Raguram Kasthurisamy
 # One-time setup: adds the third-party dependencies as shallow git submodules pinned to
 # known tags. Run it once in your repo, then commit. After that, fresh clones only need:
 #   git clone --recurse-submodules <your-repo-url>

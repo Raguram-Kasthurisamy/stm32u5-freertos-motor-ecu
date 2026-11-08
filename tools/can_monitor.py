@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-# Author: Raghuram Kasturi Sami
-# Copyright (c) 2026 Raghuram Kasturi Sami
+# Author: Raguram Kasthurisamy
 """Watch and command the ECU over CAN with a USB-CAN adapter.
 
 Decodes every ECU frame with protocol/ecu.dbc. With --speed it also acts as the commanding

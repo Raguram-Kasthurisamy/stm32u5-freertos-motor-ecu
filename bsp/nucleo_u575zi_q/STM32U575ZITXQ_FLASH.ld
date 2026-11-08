@@ -1,6 +1,5 @@
 /*
- * Author: Raghuram Kasturi Sami
- * Copyright (c) 2026 Raghuram Kasturi Sami
+ * Author: Raguram Kasthurisamy
  */
 /*
  * Linker script for STM32U575ZIT6Q (2 MiB flash, 768 KiB contiguous SRAM1-3), written for

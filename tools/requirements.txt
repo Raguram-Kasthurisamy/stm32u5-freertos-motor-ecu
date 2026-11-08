@@ -1,5 +1,4 @@
-# Author: Raghuram Kasturi Sami
-# Copyright (c) 2026 Raghuram Kasturi Sami
+# Author: Raguram Kasthurisamy
 
 pyserial>=3.5
 matplotlib>=3.7

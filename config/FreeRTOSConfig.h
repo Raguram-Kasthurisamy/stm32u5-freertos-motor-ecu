@@ -1,6 +1,5 @@
 /*
- * Author: Raghuram Kasturi Sami
- * Copyright (c) 2026 Raghuram Kasturi Sami
+ * Author: Raguram Kasthurisamy
  */
 
 #ifndef FREERTOS_CONFIG_H

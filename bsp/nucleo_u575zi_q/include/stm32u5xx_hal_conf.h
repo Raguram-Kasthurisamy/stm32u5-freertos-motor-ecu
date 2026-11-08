@@ -1,6 +1,5 @@
 /*
- * Author: Raghuram Kasturi Sami
- * Copyright (c) 2026 Raghuram Kasturi Sami
+ * Author: Raguram Kasthurisamy
  */
 /*
  * HAL configuration for NUCLEO-U575ZI-Q, based on ST's stm32u5xx_hal_conf_template.h.

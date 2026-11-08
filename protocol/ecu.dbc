@@ -31,7 +31,7 @@ BO_ 1793 ECU_Heartbeat: 8 ECU
  SG_ ResetCause : 8|8@1+ (1,0) [0|7] "" TOOL
  SG_ Uptime : 16|32@1+ (1,0) [0|4294967295] "s" TOOL
 
-CM_ "Author: Raghuram Kasturi Sami. CAN protocol of the smart-actuator ECU: classic CAN, 500 kbit/s, 11-bit identifiers, little-endian signals.";
+CM_ "Author: Raguram Kasthurisamy. CAN protocol of the smart-actuator ECU: classic CAN, 500 kbit/s, 11-bit identifiers, little-endian signals.";
 CM_ BO_ 256 "Command to the ECU. AliveCounter must change on every frame; the ECU stops the motor if valid commands stop for 250 ms.";
 CM_ SG_ 256 Crc "CRC-8 SAE J1850 over bytes 0 to 6.";
 CM_ BO_ 384 "Controller state, sent every 10 ms.";

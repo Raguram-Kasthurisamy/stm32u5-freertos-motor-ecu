@@ -1,5 +1,4 @@
-# Author: Raghuram Kasturi Sami
-# Copyright (c) 2026 Raghuram Kasturi Sami
+# Author: Raguram Kasthurisamy
 # NUCLEO-U575ZI-Q: STM32U575ZIT6Q, Cortex-M33 with FPU and TrustZone, 160 MHz,
 # 2 MiB flash, 784 KiB SRAM, internal SMPS ("-Q" package).
 set(BOARD_DIR ${CMAKE_CURRENT_LIST_DIR})

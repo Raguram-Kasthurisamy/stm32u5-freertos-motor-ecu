@@ -1,5 +1,4 @@
-# Author: Raghuram Kasturi Sami
-# Copyright (c) 2026 Raghuram Kasturi Sami
+# Author: Raguram Kasthurisamy
 # FreeRTOS kernel from the submodule, built with config/FreeRTOSConfig.h.
 # FREERTOS_PORT and FREERTOS_PORT_FILES come from the board's board.cmake.
 set(FREERTOS_DIR ${CMAKE_SOURCE_DIR}/third_party/FreeRTOS-Kernel)

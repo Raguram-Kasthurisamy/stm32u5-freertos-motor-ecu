@@ -1,5 +1,4 @@
-# Author: Raghuram Kasturi Sami
-# Copyright (c) 2026 Raghuram Kasturi Sami
+# Author: Raguram Kasthurisamy
 # Hardware-independent code. Built twice: for the target (as part of the firmware) and for
 # the host (by test/CMakeLists.txt), so it must not include HAL, CMSIS or FreeRTOS headers.
 add_library(ecu_lib STATIC

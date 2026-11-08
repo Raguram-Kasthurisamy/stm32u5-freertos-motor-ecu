@@ -1,5 +1,4 @@
-# Author: Raghuram Kasturi Sami
-# Copyright (c) 2026 Raghuram Kasturi Sami
+# Author: Raguram Kasthurisamy
 # Post-build check: fail the build if a heap allocator was linked into the firmware.
 # Usage: cmake -DNM=<arm-none-eabi-nm> -DELF=<firmware.elf> -P check_no_heap.cmake
 execute_process(

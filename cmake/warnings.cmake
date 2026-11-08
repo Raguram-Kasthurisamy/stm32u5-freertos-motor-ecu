@@ -1,5 +1,4 @@
-# Author: Raghuram Kasturi Sami
-# Copyright (c) 2026 Raghuram Kasturi Sami
+# Author: Raguram Kasthurisamy
 # Warning set for firmware code we own. Vendor code (HAL, CMSIS, FreeRTOS) is compiled
 # without it and its headers are included as SYSTEM, so its warnings do not drown ours.
 add_library(ecu_warnings INTERFACE)
