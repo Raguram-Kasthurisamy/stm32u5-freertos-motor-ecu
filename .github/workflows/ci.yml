@@ -1,0 +1,55 @@
+# Author: Raguram Kasthurisamy
+
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  host-tests:
+    name: Host unit tests (ASan + UBSan)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Ninja
+        run: sudo apt-get update && sudo apt-get install -y ninja-build
+      - name: Configure
+        run: cmake -S test -B build/test -G Ninja -DECU_WERROR=ON
+      - name: Build
+        run: cmake --build build/test
+      - name: Test
+        run: ctest --test-dir build/test --output-on-failure
+      - name: Check Python tools compile
+        run: python3 -m py_compile tools/telemetry_plot.py tools/can_monitor.py
+
+  firmware:
+    name: Firmware (${{ matrix.preset }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        preset: [debug, release]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Install Arm GNU Toolchain
+        uses: carlosperate/arm-none-eabi-gcc-action@v1
+        with:
+          release: '13.3.Rel1'
+      - name: Install Ninja
+        run: sudo apt-get update && sudo apt-get install -y ninja-build
+      - name: Configure
+        run: cmake --preset ${{ matrix.preset }}
+      - name: Build (also fails if malloc gets linked)
+        run: cmake --build --preset ${{ matrix.preset }}
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: ecu-firmware-${{ matrix.preset }}
+          path: |
+            build/${{ matrix.preset }}/ecu_firmware.elf
+            build/${{ matrix.preset }}/ecu_firmware.hex
+            build/${{ matrix.preset }}/ecu_firmware.bin
+            build/${{ matrix.preset }}/ecu_firmware.map
