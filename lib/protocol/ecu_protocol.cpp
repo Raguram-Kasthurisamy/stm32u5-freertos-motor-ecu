@@ -28,7 +28,7 @@ std::uint64_t get_bits(const Bytes& data, unsigned start, unsigned length) {
   std::uint64_t value = 0;
   for (unsigned i = 0; i < length; ++i) {
     const unsigned bit = start + i;
-    if (((data[bit / 8U] >> (bit % 8U)) & 1U) != 0U) {
+    if (((static_cast<unsigned>(data[bit / 8U]) >> (bit % 8U)) & 1U) != 0U) {
       value |= std::uint64_t{1} << i;
     }
   }
@@ -78,8 +78,8 @@ std::uint8_t crc8_sae_j1850(std::span<const std::uint8_t> bytes) {
   for (const std::uint8_t byte : bytes) {
     crc = static_cast<std::uint8_t>(crc ^ byte);
     for (int i = 0; i < 8; ++i) {
-      crc = (crc & 0x80U) != 0U ? static_cast<std::uint8_t>((crc << 1U) ^ 0x1DU)
-                                : static_cast<std::uint8_t>(crc << 1U);
+      const unsigned shifted = static_cast<unsigned>(crc) << 1U;
+      crc = static_cast<std::uint8_t>((crc & 0x80U) != 0U ? (shifted ^ 0x1DU) : shifted);
     }
   }
   return static_cast<std::uint8_t>(crc ^ 0xFFU);
