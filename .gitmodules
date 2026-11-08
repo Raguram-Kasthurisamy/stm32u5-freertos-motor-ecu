@@ -1,0 +1,16 @@
+[submodule "third_party/FreeRTOS-Kernel"]
+	path = third_party/FreeRTOS-Kernel
+	url = https://github.com/FreeRTOS/FreeRTOS-Kernel.git
+	shallow = true
+[submodule "third_party/CMSIS_5"]
+	path = third_party/CMSIS_5
+	url = https://github.com/ARM-software/CMSIS_5.git
+	shallow = true
+[submodule "third_party/cmsis_device_u5"]
+	path = third_party/cmsis_device_u5
+	url = https://github.com/STMicroelectronics/cmsis_device_u5.git
+	shallow = true
+[submodule "third_party/stm32u5xx_hal_driver"]
+	path = third_party/stm32u5xx_hal_driver
+	url = https://github.com/STMicroelectronics/stm32u5xx_hal_driver.git
+	shallow = true
